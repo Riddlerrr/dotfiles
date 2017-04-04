@@ -3,13 +3,15 @@ call plug#begin('~/.vim/plugged')
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'}
-Plug 'Lokaltog/vim-easymotion', {'commit': 'fd556fd9d'}
-Plug 'scrooloose/nerdtree', {'commit': '4f1e6ecb0'}
+Plug 'Lokaltog/vim-easymotion'
+Plug 'scrooloose/nerdtree'
 
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'morhetz/gruvbox' " color theme
+
+" Color theme
+Plug 'morhetz/gruvbox'
 
 " General
 Plug 'Rename2'
@@ -19,7 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
 
-Plug 'mileszs/ack.vim', {'do': 'brew install ag'}
+Plug 'mileszs/ack.vim', has('mvim') ? {'do': 'brew install ag'} : {}
 Plug 'janx/vim-rubytest'
 
 " Text manipulation
