@@ -9,6 +9,7 @@ Plug 'scrooloose/nerdtree'
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
+Plug 'ervandew/supertab'
 
 " Color theme
 Plug 'morhetz/gruvbox'
