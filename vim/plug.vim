@@ -29,15 +29,14 @@ Plug 'janx/vim-rubytest'
 Plug 'matchit.zip'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-ruby'
-
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/switch.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Linters
 Plug 'neomake/neomake'
