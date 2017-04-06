@@ -16,12 +16,6 @@ let g:rubytest_cmd_example = "bundle exec rspec '%p:%c'"
 let g:clojure_align_subforms = 1
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^cond$']
 
-" easy-motion
-let g:EasyMotion_leader_key = '<Leader>'
-" conflicts with vim-rubytest
-let g:EasyMotion_mapping_t = ''
-let g:EasyMotion_mapping_T = ''
-
 " delimitMate
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 1

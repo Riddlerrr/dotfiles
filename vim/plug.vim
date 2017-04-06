@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'}
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 
 " UI
