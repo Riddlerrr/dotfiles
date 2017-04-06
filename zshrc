@@ -33,6 +33,9 @@ alias ga='git add'
 alias gb='git branch'
 alias gsl='git stash list'
 
+# Search
+alias ag="ag -Qi"
+
 # Global aliases
 alias -g G='| grep'
 alias -g H='| head'
