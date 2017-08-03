@@ -32,3 +32,12 @@ Style/FrozenStringLiteralComment:
 Style/BlockDelimiters:
   Enabled: false
   EnforcedStyle: semantic
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: consistent_comma
