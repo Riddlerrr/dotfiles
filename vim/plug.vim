@@ -21,9 +21,10 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-dispatch'
+Plug 'janko-m/vim-test'
 
-Plug 'mileszs/ack.vim', has('mvim') ? {'do': 'brew install ag'} : {}
-Plug 'janx/vim-rubytest'
+Plug 'mhinz/vim-grepper'
 
 " Text manipulation
 Plug 'matchit.zip'
@@ -44,6 +45,7 @@ Plug 'neomake/neomake'
 " Language Additions
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
 
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-haml'

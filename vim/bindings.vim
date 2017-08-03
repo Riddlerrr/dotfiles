@@ -31,8 +31,13 @@ nnoremap <leader>sp :StripWhitespace<CR>
 
 " Windows
 nnoremap <tab> <C-w>w
+nnoremap <leader>- <C-w>_
+nnoremap <leader>= <C-w>=
 nnoremap <leader>x :bd<CR>
 nnoremap <leader>x! :bufdo bd<CR>
+" close/open quickfix window (tests)
+nnoremap <leader>wq :cclose<CR>
+nnoremap <leader>wo :Copen<CR>
 
 " Remove highlight
 nnoremap <leader>h :noh<CR>
@@ -49,12 +54,20 @@ cnoremap <C-n> <Down>
 nnoremap <leader>rdm :Rake db:migrate<CR>
 nnoremap <leader>rdtp :Rake db:test:prepare<CR>
 
+" Tests
+nnoremap <leader>t :TestFile<CR>
+nnoremap <leader>s :TestNearest<CR>
+nnoremap <leader>l :TestLast<CR>
+
 " Powder
 nnoremap <leader>pr :!powder restart<CR><CR>
 
 " Plugins
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-y> :NERDTreeFind<CR>
+
+" Generate Ctags
+nnoremap <leader>ct :!ctags -R --languages=ruby --exclude=.git --exclude=log .<CR>
 
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>ga :Git a<CR>
@@ -71,6 +84,8 @@ nnoremap <D-/> :call NERDComment(0, 'invert')<cr>
 vnoremap <D-/> :call NERDComment(0, 'invert')<cr>
 inoremap <D-/> <esc>:call NERDComment(0, 'invert')<cr>i
 
-nnoremap <Leader>a :Ack! -Qi<space>
+nnoremap <Leader>g :Grepper -tool git<CR>
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
 
 nnoremap - :Switch<cr>

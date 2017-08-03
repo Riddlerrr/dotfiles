@@ -8,9 +8,8 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtBS()': ['<bs>', '<c-]>', '<c-h>'], }
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
-" vim-rubytest
-let g:rubytest_cmd_spec = "bundle exec rspec '%p'"
-let g:rubytest_cmd_example = "bundle exec rspec '%p:%c'"
+" vim-test
+let test#strategy = "dispatch"
 
 " vim-clojure-static
 let g:clojure_align_subforms = 1
@@ -24,11 +23,6 @@ let g:delimitMate_expand_cr = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsSnippetDirectories=["my-snippets"]
-
-" Ack -> Ag
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
