@@ -32,6 +32,7 @@ alias gc='git commit'
 alias ga='git add'
 alias gb='git branch'
 alias gsl='git stash list'
+alias gsu='git submodule update'
 
 # Search
 alias ag="ag -Qi"
