@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.transit setfiletype ruby
+au BufRead,BufNewFile *.transit,*.axlsx setfiletype ruby
