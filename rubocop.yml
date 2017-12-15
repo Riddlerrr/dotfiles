@@ -41,3 +41,6 @@ Style/TrailingCommaInArguments:
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
