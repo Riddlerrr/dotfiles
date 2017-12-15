@@ -61,7 +61,6 @@ google() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# Tuning Ruby
-export RUBY_GC_MALLOC_LIMIT=90000000
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+eval "$(rbenv init -)"
