@@ -32,6 +32,7 @@ alias gh='git push'
 alias gc='git commit'
 alias ga='git add'
 alias gb='git branch'
+alias gbd='git branch -D'
 alias gsl='git stash list'
 alias gsu='git submodule update'
 
