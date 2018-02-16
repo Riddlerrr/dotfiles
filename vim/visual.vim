@@ -1,7 +1,6 @@
 syntax on
 colorscheme gruvbox
 set background=dark
-highlight clear SignColumn " gitgutter
 
 set nu " line numbers on
 set nowrap
