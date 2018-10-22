@@ -17,7 +17,7 @@ alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 alias ctags="/usr/local/bin/ctags"
-alias ct='ctags -R --languages=ruby --exclude=.git --exclude=log .'
+alias ct='ctags -R --languages=ruby,lisp --exclude=.git --exclude=log --exclude=target --langmap=Lisp:+.cljs .'
 
 #Rails
 alias sa='bin/rake spec:all'
