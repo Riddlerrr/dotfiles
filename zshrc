@@ -52,12 +52,14 @@ alias gba="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
-google() {
-  if [ $2 ] ; then
-    git grep -n $1 $2
-  else
-    git grep -n $1 '.'
-  fi
+# HB: download and restore production DB
+fetchdb () {
+    ssh delta.halalbooking.com /usr/local/opt/misc/pgdump_halalbooking.sh > hb.dump && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod && pg_restore --no-owner -d hb_prod hb.dump && psql hb_prod -c 'update users set otp_enabled = false where otp_enabled; insert into roles_users values (1, 406);' && dropdb hb_prod-copy && createdb hb_prod-copy -T hb_prod && rm hb.dump
+}
+
+# HB: drop current and replace with copy of DB
+restoredb () {
+    pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
