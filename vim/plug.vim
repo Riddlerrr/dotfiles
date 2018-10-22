@@ -15,7 +15,6 @@ Plug 'tpope/vim-repeat'
 Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/switch.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'SirVer/ultisnips'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Language Additions
