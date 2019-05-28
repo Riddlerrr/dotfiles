@@ -1,5 +1,5 @@
 AllCops:
-    TargetRubyVersion: 2.3
+    TargetRubyVersion: 2.6
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -27,7 +27,7 @@ Layout/SpaceBeforeBlockBraces:
   Enabled: false
 
 Layout/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
+  Enabled: false
 
 Style/EmptyMethod:
   Enabled: false
@@ -50,3 +50,6 @@ Style/TrailingCommaInHashLiteral:
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Style/IfUnlessModifier:
+  Enabled: false
