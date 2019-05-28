@@ -64,8 +64,7 @@ restoredb () {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 eval "$(rbenv init -)"
 
 # HB deploy
