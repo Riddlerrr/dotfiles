@@ -54,6 +54,14 @@ alias gba="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
+port_forward () {
+  echo "\nrdr pass inet proto tcp from any to any port 80 -> 127.0.0.1 port $1 \n" | sudo pfctl -ef -
+}
+
+clean_port_forwarding () {
+  sudo pfctl -F all -f /etc/pf.conf
+}
+
 # HB: download and restore production DB
 fetchdb () {
     ssh delta.halalbooking.com /usr/local/opt/misc/pgdump_halalbooking.sh > hb.dump && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod && psql hb_prod -c 'CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog; CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public; CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public; CREATE EXTENSION IF NOT EXISTS intarray WITH SCHEMA public;' && pg_restore --no-owner -d hb_prod hb.dump && psql hb_prod -c "update users set otp_enabled = false where otp_enabled; insert into roles_users values (1, 406); UPDATE users SET otp_enabled = FALSE WHERE users.deleted_at IS NULL AND users.type = 'operator';" && dropdb hb_prod-copy && createdb hb_prod-copy -T hb_prod && rm hb.dump
