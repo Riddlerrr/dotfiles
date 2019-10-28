@@ -64,12 +64,23 @@ clean_port_forwarding () {
 
 # HB: download and restore production DB
 fetchdb () {
-    ssh delta.halalbooking.com /usr/local/opt/misc/pgdump_halalbooking.sh > hb.dump && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod && psql hb_prod -c 'CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog; CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public; CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public; CREATE EXTENSION IF NOT EXISTS intarray WITH SCHEMA public;' && pg_restore --no-owner -d hb_prod hb.dump && psql hb_prod -c "update users set otp_enabled = false where otp_enabled; insert into roles_users values (1, 406); UPDATE users SET otp_enabled = FALSE WHERE users.deleted_at IS NULL AND users.type = 'operator';" && dropdb hb_prod-copy && createdb hb_prod-copy -T hb_prod && rm hb.dump
+  ssh delta.halalbooking.com /usr/local/opt/misc/pgdump_halalbooking.sh > hb.dump \
+  && dropdb hb_prod-copy && createdb hb_prod-copy \
+  && psql hb_prod-copy -c 'CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog; CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public; CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public; CREATE EXTENSION IF NOT EXISTS intarray WITH SCHEMA public;' \
+  && time pg_restore --no-owner -j 4 -d hb_prod-copy hb.dump \
+  && psql hb_prod-copy -c "update users set otp_enabled = false where otp_enabled; insert into roles_users values (1, 406);" \
+  && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy \
+  && rm hb.dump \
+  && rails runner "User.where(email: 'sergey@halalbooking.com').each {|u| u.update(password: 'qwerty')}"
 }
 
 # HB: drop current and replace with copy of DB
 restoredb () {
-    pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy
+  pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy
+}
+
+reset_hb_passwords () {
+  rails runner "User.where(email: 'sergey@halalbooking.com').each {|u| u.update(password: 'qwerty')}"
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
