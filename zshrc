@@ -28,6 +28,7 @@ alias gd='git diff'
 alias go='git checkout'
 alias gp='git pull'
 alias gpom='git pull origin master'
+alias gmu='git pull origin master && bundle install --quiet && bin/torba pack && rdm && go db/structure.sql'
 alias gh='git push'
 alias gc='git commit'
 alias ga='git add'
@@ -35,6 +36,7 @@ alias gb='git branch'
 alias gbd='git branch -D'
 alias gsl='git stash list'
 alias gsu='git submodule update'
+alias gnb='git checkout -b'
 
 # Search
 alias ag="ag -Qi"
