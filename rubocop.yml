@@ -15,10 +15,18 @@ Metrics/BlockLength:
   Enabled: false
 
 Metrics/AbcSize:
+  Enabled: false
   Max: 25
 
 Metrics/MethodLength:
+  Enabled: false
   Max: 20
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
@@ -39,7 +47,7 @@ Style/BlockDelimiters:
   Enabled: false
   EnforcedStyle: semantic
 
-Style/NumericLiterals:
+Style/NumericLiteralPrefix:
   Enabled: false
 
 Style/TrailingCommaInArguments:
