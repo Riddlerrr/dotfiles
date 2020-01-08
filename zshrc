@@ -86,12 +86,11 @@ reset_hb_passwords () {
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/sbin:$PATH"
-eval "$(rbenv init -)"
 
 # HB deploy
 export PATH="/Users/sergey/workspace/deploy:$PATH"
 alias jrun="jrun.sh halalbooking"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# asdf
+. $(brew --prefix asdf)/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.sh
