@@ -1,4 +1,7 @@
 export ZSH=~/.oh-my-zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
 
 ZSH_THEME="robbyrussell"
 
