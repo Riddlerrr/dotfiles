@@ -69,8 +69,8 @@ clean_port_forwarding () {
 fetchdb () {
   make fetchdb PGDATABASE=hb_prod-copy \
   && psql hb_prod-copy -c "update users set otp_enabled = false where otp_enabled;" \
-  && reset_hb_passwords \
-  && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy
+  && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy \
+  && reset_hb_passwords
 }
 
 # HB: drop current and replace with copy of DB
