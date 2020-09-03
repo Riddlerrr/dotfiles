@@ -65,30 +65,11 @@ clean_port_forwarding () {
   sudo pfctl -F all -f /etc/pf.conf
 }
 
-# HB: download and restore production DB
-fetchdb () {
-  make fetchdb PGDATABASE=hb_prod-copy \
-  && psql hb_prod-copy -c "update users set otp_enabled = false where otp_enabled;" \
-  && pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy \
-  && reset_hb_passwords
-}
-
-# HB: drop current and replace with copy of DB
-restoredb () {
-  pkill -9 puma ruby && dropdb hb_prod && createdb hb_prod -T hb_prod-copy
-}
-
-reset_hb_passwords () {
-  rails runner "User.where(email: 'sergey@halalbooking.com').each {|u| u.update(password: 'qwerty')}"
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/sbin:$PATH"
-
-# HB deploy
-export PATH="/Users/sergey/workspace/deploy:$PATH"
-alias jrun="jrun.sh halalbooking"
 
 # asdf
 . $(brew --prefix asdf)/asdf.sh
