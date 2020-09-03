@@ -34,7 +34,7 @@ Style/Documentation:
 Layout/SpaceBeforeBlockBraces:
   Enabled: false
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 
 Style/EmptyMethod:
@@ -62,7 +62,7 @@ Style/TrailingCommaInHashLiteral:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   Enabled: false
 
 Style/IfUnlessModifier:
