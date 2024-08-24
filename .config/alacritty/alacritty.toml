@@ -1,0 +1,32 @@
+# Themes
+import = ["~/.config/alacritty/themes/gruvbox.toml"]
+# import = ["~/.config/alacritty/themes/tokio-night.toml"]
+# import = ["~/.config/alacritty/themes/everforest.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+# [shell]
+# program = "zellij"
+
+[window]
+dimensions.columns = 150
+dimensions.lines = 40
+position.x = 100
+position.y = 100
+decorations = "transparent" # macOS
+padding.x = 16
+padding.y = 30
+dynamic_padding = true
+# decorations = "None" # Linux
+opacity = 0.90
+blur = true
+
+[font]
+# normal = { family = "MesloLGLDZ Nerd Font Mono", style = "Regular" }
+# bold = { family = "CaskaydiaMono Nerd Font", style = "Bold" }
+# italic = { family = "CaskaydiaMono Nerd Font", style = "Italic" }
+size = 15.0
+
+[keyboard]
+bindings = [{ key = "F11", action = "ToggleFullscreen" }]
