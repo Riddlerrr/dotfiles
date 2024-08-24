@@ -1,5 +1,7 @@
 ## Installation
 
-run `./install` to link dotfiles
+From the current directory, run the following command:
 
-after in vim run `:PlugInstall`
+```bash
+stow -t ~/ .
+```
