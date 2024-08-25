@@ -23,10 +23,19 @@ opacity = 0.90
 blur = true
 
 [font]
-# normal = { family = "MesloLGLDZ Nerd Font Mono", style = "Regular" }
-# bold = { family = "CaskaydiaMono Nerd Font", style = "Bold" }
-# italic = { family = "CaskaydiaMono Nerd Font", style = "Italic" }
 size = 15.0
+normal = { family = "Menlo", style = "Regular" }
+bold = { family = "Menlo", style = "Bold" }
+italic = { family = "Menlo", style = "Italic" }
 
 [keyboard]
-bindings = [{ key = "F11", action = "ToggleFullscreen" }]
+bindings = [
+  { key = "F11", action = "ToggleFullscreen" },
+  { key = "ArrowLeft", mods = "Command", chars = "\u001BB" },
+  { key = "ArrowRight", mods = "Command", chars = "\u001BF" },
+]
+
+[[hints.enabled]]
+regex = "[^ ]+\\.rb:\\d+:\\d+"
+command = { program = "code", args = ["--goto"] }
+mouse = { enabled = true }
