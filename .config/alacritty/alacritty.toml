@@ -30,6 +30,7 @@ bold = { family = "MesloLGLDZ Nerd Font", style = "Bold" }
 italic = { family = "MesloLGLDZ Nerd Font", style = "Italic" }
 
 [keyboard]
+# ASCII control codes https://www.windmill.co.uk/ascii-control-codes.html
 bindings = [
   { key = "F11", action = "ToggleFullscreen" },
   { key = "ArrowLeft", mods = "Option", chars = "\u001bb" },    # Jump left a word
