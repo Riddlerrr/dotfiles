@@ -4,5 +4,13 @@
 
 local map = vim.keymap.set
 
--- Save file on macOS
+-- Save file on macOS (zellij doesn't support it)
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Move lines up and down by Ctrl-Alt-j/k (Alt-j/k is used by zellij)
+map({ "n" }, "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
+map({ "n" }, "<C-A-k>", "<cmd>m .-2<cr>==", { desc = "Move Line Up" })
+map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
