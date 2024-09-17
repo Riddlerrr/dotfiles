@@ -62,6 +62,7 @@ W - whitespace
 `z a` - toggle fold (свернуть/развернуть)
 `ctrl-o` - go back (useful after go to definition or other jumps)
 `' '` - go to the last position and go back again if pressed again
+`V >` - indent selected lines
 
 ### Selection
 
@@ -79,3 +80,4 @@ W - whitespace
 `*` - search for the word under the cursor
 `#` - search for the word under the cursor backwards
 `~` - toggle case of the character under the cursor
+`space s n a` - show all errors and warnings
