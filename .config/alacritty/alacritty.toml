@@ -39,6 +39,7 @@ bindings = [
   { key = "ArrowRight", mods = "Command", chars = "\u001bOF" }, # End of line 
   { key = "Backspace", mods = "Command", chars = "\u0015" },    # Delete line
   { key = "s", mods = "Command", chars = "\u0013" },            # Cmd-s as Ctrl-s
+  { key = "w", mods = "Command", action = "None" },             # Don't close the terminal on Cmd+w
 ]
 
 [[hints.enabled]]
