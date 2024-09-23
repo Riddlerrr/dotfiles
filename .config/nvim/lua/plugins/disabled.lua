@@ -1,3 +1,4 @@
 return {
-  { "folke/noice.nvim", enabled = true },
+  -- disable autoclosing brackets and quotes
+  { "echasnovski/mini.pairs", enabled = false },
 }
