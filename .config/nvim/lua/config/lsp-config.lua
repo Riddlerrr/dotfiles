@@ -10,6 +10,10 @@ return {
         mason = false,
         cmd = { "bundle exec rubocop" },
       },
+      standardrb_bundle = {
+        mason = false,
+        cmd = { "bundle exec standard" },
+      },
     },
   },
 }
