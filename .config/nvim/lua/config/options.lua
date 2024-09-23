@@ -6,5 +6,5 @@
 vim.g.lazyvim_ruby_lsp = "ruby_lsp"
 vim.g.lazyvim_ruby_formatter = "rubocop_bundle"
 
-local opt = vim.opt
-opt.clipboard = ""
+-- local opt = vim.opt
+-- opt.clipboard = ""
