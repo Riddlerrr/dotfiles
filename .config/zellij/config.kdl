@@ -130,7 +130,7 @@ keybinds clear-defaults=true {
   shared_except "locked" {
     bind "Alt g" { SwitchToMode "Locked"; }
     bind "Alt q" { Quit; }
-    bind "Alt w" { ToggleFloatingPanes; }
+    bind "Alt w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
     bind "Alt n" { NewPane; }
     bind "Alt i" { MoveTab "Left"; }
     bind "Alt o" { MoveTab "Right"; }
@@ -160,7 +160,7 @@ keybinds clear-defaults=true {
     bind "Alt p" { SwitchToMode "Pane"; }
   }
   shared_except "resize" "locked" {
-    bind "Alt n" { SwitchToMode "Resize"; }
+    bind "Alt r" { SwitchToMode "Resize"; }
   }
   shared_except "scroll" "locked" {
     bind "Alt s" { SwitchToMode "Scroll"; }
