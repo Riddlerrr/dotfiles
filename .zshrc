@@ -1,7 +1,8 @@
 export ZSH=~/.oh-my-zsh
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="/opt/homebrew/opt/node@18/bin:/usr/local/sbin:$PATH"
-export NODE_OPTIONS=--openssl-legacy-provider
+# nodenv
+eval "$(nodenv init - zsh)"
+# export NODE_OPTIONS=--openssl-legacy-provider
 
 ZSH_THEME="robbyrussell"
 
