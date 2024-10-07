@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     servers = {
-      ruby_lsp = {
+      ruby_lsp_asdf = {
         mason = false,
         cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
       },
