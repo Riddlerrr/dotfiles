@@ -17,3 +17,15 @@ map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- close current buffer/tab more quickly
 map("n", "<leader>d", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
+
+vim.api.nvim_create_user_command("Cppath", function(opts)
+  local path = vim.fn.expand("%")
+  if opts.fargs[1] then
+    path = path .. ":" .. vim.fn.line(".")
+  end
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, { nargs = "*" })
+
+map("n", "<leader>cp", ":Cppath<cr>", { desc = "Copy path" })
+map("n", "<leader>cP", ":Cppath(with_line = true)<cr>", { desc = "Copy path with line" })
