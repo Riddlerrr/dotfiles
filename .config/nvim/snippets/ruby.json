@@ -1,0 +1,6 @@
+{
+  "Insert pry brakepoint": {
+    "prefix": "pry",
+    "body": "binding.pry"
+  }
+}
