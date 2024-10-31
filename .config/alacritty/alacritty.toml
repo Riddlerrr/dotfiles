@@ -1,8 +1,3 @@
-# Themes
-import = ["~/.config/alacritty/themes/gruvbox.toml"]
-# import = ["~/.config/alacritty/themes/tokio-night.toml"]
-# import = ["~/.config/alacritty/themes/everforest.toml"]
-
 [env]
 TERM = "xterm-256color"
 
@@ -22,9 +17,6 @@ option_as_alt = "Both"
 
 [font]
 size = 15.0
-# normal = { family = "Menlo", style = "Regular" }
-# bold = { family = "Menlo", style = "Bold" }
-# italic = { family = "Menlo", style = "Italic" }
 normal = { family = "MesloLGLDZ Nerd Font", style = "Regular" }
 bold = { family = "MesloLGLDZ Nerd Font", style = "Bold" }
 italic = { family = "MesloLGLDZ Nerd Font", style = "Italic" }
@@ -46,3 +38,7 @@ bindings = [
 regex = "[^ ]+\\.rb:\\d+:\\d+"
 command = { program = "code", args = ["--goto"] }
 mouse = { enabled = true }
+
+[general]
+# Themes
+import = ["~/.config/alacritty/themes/gruvbox.toml"]
