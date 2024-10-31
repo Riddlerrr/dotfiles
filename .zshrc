@@ -2,7 +2,6 @@ export ZSH=~/.oh-my-zsh
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # nodenv
 eval "$(nodenv init - zsh)"
-# export NODE_OPTIONS=--openssl-legacy-provider
 
 ZSH_THEME="robbyrussell"
 
@@ -41,7 +40,7 @@ alias ghide='git update-index --skip-worktree'
 alias gunhide='git update-index --no-skip-worktree'
 alias ghidden='git ls-files -v . | grep ^S'
 
-# Beautiful git branch
+# Beautiful git branch list
 alias gba="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(authorname) | (%(color:green)%(committerdate:relative)%(color:reset)) | %(contents:subject)' | column -t -s '|'"
 
 # Docker
@@ -53,15 +52,17 @@ alias dcur="docker compose up rails"
 
 # Global aliases
 alias -g G='| grep'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g CP='| pbcopy'
-alias -g L="| less"
+
+# ClickFunnel's aliases
+alias t="bin/test --no-retry --no-precompile --fail-fast --skip-seeds"
+alias ts="bin/test --no-retry --no-precompile --fail-fast"
+alias mds="make dev-sync"
+alias msa="make start-all-overmind"
+alias msc="make web-start-custom"
+alias rs="bin/rails s -p 5011 -b 0.0.0.0 --pid=tmp/pids/workspace_server.pid"
 
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
