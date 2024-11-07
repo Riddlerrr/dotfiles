@@ -60,6 +60,7 @@ alias mds="make dev-sync"
 alias msa="make start-all-overmind"
 alias msc="make web-start-custom"
 alias rs="bin/rails s -p 5011 -b 0.0.0.0 --pid=tmp/pids/workspace_server.pid"
+alias rgd="bin/rails api_docs:publish_openapi_schema"
 
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
