@@ -16,7 +16,9 @@ map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- close current buffer/tab more quickly
-map("n", "<leader>d", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
+map("n", "<leader>d", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
 
 vim.api.nvim_create_user_command("Cppath", function(opts)
   local path = vim.fn.expand("%")
