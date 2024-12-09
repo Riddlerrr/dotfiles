@@ -1,5 +1,5 @@
 theme "gruvbox-custom"
-default_layout "compact"
+default_layout "welcome"
 on_force_close "quit"
 pane_frames false
 
