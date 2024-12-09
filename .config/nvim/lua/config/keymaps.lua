@@ -15,6 +15,9 @@ map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
+-- Comment line with ctrl-/
+map("n", "<c-/>", "<cmd>normal gcc<cr>", { desc = "Comment line" })
+
 -- close current buffer/tab more quickly
 map("n", "<leader>d", function()
   Snacks.bufdelete()
@@ -31,3 +34,6 @@ end, { nargs = "*" })
 
 map("n", "<leader>cp", ":Cppath<cr>", { desc = "Copy path" })
 map("n", "<leader>cP", ":Cppath(with_line = true)<cr>", { desc = "Copy path with line" })
+
+-- Replace/alter a word under the cursor with the yanked text
+map("n", "ga", "viwP", { desc = "Replace/alter a word with yanked text" })
