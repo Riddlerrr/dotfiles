@@ -1,7 +1,22 @@
+if [[ $(uname) == "Darwin" ]]; then
+    export OS="macos"
+elif command -v apt > /dev/null; then
+    export OS="linux"
+else
+    echo 'Unknown OS!'
+fi
+
 export ZSH=~/.oh-my-zsh
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# nodenv
-eval "$(nodenv init - zsh)"
+if [[ $OS == "macos" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # nodenv
+  eval "$(nodenv init - zsh)"
+
+  # asdf
+  . $(brew --prefix asdf)/libexec/asdf.sh
+  . ~/.asdf/plugins/golang/set-env.zsh
+fi
 
 ZSH_THEME="robbyrussell"
 
@@ -10,7 +25,7 @@ plugins=(git rails)
 source $ZSH/oh-my-zsh.sh
 
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
   export EDITOR='nvim'
 fi
@@ -64,12 +79,4 @@ alias rdg="bin/rails api_docs:publish_openapi_schema"
 
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-# asdf
-. $(brew --prefix asdf)/libexec/asdf.sh
-. ~/.asdf/plugins/golang/set-env.zsh
-
-# google cloud sdk
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
