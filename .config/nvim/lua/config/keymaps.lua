@@ -15,8 +15,8 @@ map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
--- Comment line with ctrl-/
-map("n", "<c-/>", "<cmd>normal gcc<cr>", { desc = "Comment line" })
+-- Comment line with g /
+map({ "n", "v" }, "g/", "<cmd>normal gcc<cr>", { desc = "Comment line" })
 
 -- close current buffer/tab more quickly
 map("n", "<leader>d", function()
