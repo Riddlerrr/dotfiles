@@ -1,0 +1,8 @@
+font-family = "MesloLGLDZ Nerd Font"
+font-size = 15
+theme = GruvboxDark
+
+copy-on-select = true
+quit-after-last-window-closed = true
+keybind = global:alt+`=toggle_quick_terminal
+keybind = shift+enter=text:\n
