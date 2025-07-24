@@ -7,6 +7,18 @@ else
 fi
 
 export ZSH=~/.oh-my-zsh
+
+ZSH_THEME="robbyrussell"
+
+source $ZSH/oh-my-zsh.sh
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+# macos specific auto-run commands
 if [[ $OS == "macos" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -24,16 +36,17 @@ if [[ $OS == "macos" ]]; then
   export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 fi
 
-ZSH_THEME="robbyrussell"
+if [[ $OS == "linux" ]]; then
+  if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+  fi
 
-source $ZSH/oh-my-zsh.sh
-
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
+  if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+  fi
 fi
 
+alias os='echo $OS'
 alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
 
 alias grep='grep --color'
