@@ -12,15 +12,19 @@ if [[ $OS == "macos" ]]; then
 
   # nodenv
   eval "$(nodenv init - zsh)"
+  export PATH="$(npm config get prefix)/bin:$PATH"
 
   # asdf
-  . $(brew --prefix asdf)/libexec/asdf.sh
-  . ~/.asdf/plugins/golang/set-env.zsh
+  # export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+  # . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+  eval "$(mise activate zsh)"
+
+  # custom LLVM
+  export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 fi
 
 ZSH_THEME="robbyrussell"
-
-plugins=(git rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,9 +45,9 @@ alias be='bundle exec'
 alias gs='git status'
 alias gd='git diff'
 alias gc='git checkout'
+alias gcb='git checkout -b'
 alias gp='git pull'
 alias gpom='git pull origin master'
-alias gh='git push'
 alias ga='git add'
 alias gb='git branch'
 alias gbd='git branch -D'
@@ -58,6 +62,13 @@ alias ghidden='git ls-files -v . | grep ^S'
 # Beautiful git branch list
 alias gba="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(authorname) | (%(color:green)%(committerdate:relative)%(color:reset)) | %(contents:subject)' | column -t -s '|'"
 
+# Rails
+alias rdm="bin/rails db:migrate"
+alias rdr="bin/rails db:rollback"
+alias rgm="bin/rails generate migration"
+alias rdtp="bin/rails db:test:prepare"
+alias rrg="bin/rails routes G"
+
 # Docker
 alias dps="docker ps -a"
 alias dcr="docker compose run --rm"
@@ -71,10 +82,10 @@ alias -g G='| grep'
 # ClickFunnel's aliases
 alias t="bin/test --no-retry --no-precompile --fail-fast --skip-seeds"
 alias ts="bin/test --no-retry --no-precompile --fail-fast"
+alias tm="MAGIC_TEST=1 bin/test --no-retry --no-precompile --fail-fast --skip-seeds"
 alias mds="make dev-sync"
 alias msa="make start-all-overmind"
 alias msc="make web-start-custom"
-alias rs="bin/rails s -p 5011 -b 0.0.0.0 --pid=tmp/pids/workspace_server.pid"
 alias rdg="bin/rails api_docs:publish_openapi_schema"
 
 # Make zsh know about hosts already accessed by SSH
