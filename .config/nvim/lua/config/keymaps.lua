@@ -23,6 +23,7 @@ map("n", "<leader>d", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 
+-- copy current file path to clipboard
 vim.api.nvim_create_user_command("Cppath", function(opts)
   local path = vim.fn.expand("%")
   if opts.fargs[1] then
