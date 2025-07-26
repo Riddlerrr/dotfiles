@@ -2,20 +2,27 @@ if [[ $(uname) == "Darwin" ]]; then
     export OS="macos"
 elif command -v apt > /dev/null; then
     export OS="linux"
+elif command -v nixos-rebuild > /dev/null; then
+    export OS="nixos"
 else
     echo 'Unknown OS!'
 fi
 
-export ZSH=~/.oh-my-zsh
-
-ZSH_THEME="robbyrussell"
-
-source $ZSH/oh-my-zsh.sh
+# NOT nixos => any other OS
+if [[ $OS != "nixos" ]]; then
+  export ZSH=~/.oh-my-zsh
+  ZSH_THEME="robbyrussell"
+  source $ZSH/oh-my-zsh.sh
+fi
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 else
   export EDITOR='nvim'
+fi
+
+# NixOS specific options
+if [[ $OS == "nixos" ]]; then
 fi
 
 # macos specific auto-run commands
