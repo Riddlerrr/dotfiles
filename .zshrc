@@ -8,10 +8,11 @@ else
     echo 'Unknown OS!'
 fi
 
+ZSH_THEME="robbyrussell"
+
 # NOT nixos => any other OS
 if [[ $OS != "nixos" ]]; then
   export ZSH=~/.oh-my-zsh
-  ZSH_THEME="robbyrussell"
   source $ZSH/oh-my-zsh.sh
 fi
 
@@ -23,6 +24,9 @@ fi
 
 # NixOS specific options
 if [[ $OS == "nixos" ]]; then
+   export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+
+   eval "$(direnv hook zsh)"
 fi
 
 # macos specific auto-run commands
@@ -44,6 +48,8 @@ if [[ $OS == "macos" ]]; then
 fi
 
 if [[ $OS == "linux" ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+
   if command -v mise &> /dev/null; then
     eval "$(mise activate zsh)"
   fi
@@ -51,6 +57,8 @@ if [[ $OS == "linux" ]]; then
   if command -v zoxide &> /dev/null; then
     eval "$(zoxide init zsh)"
   fi
+
+  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 alias os='echo $OS'
