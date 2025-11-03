@@ -45,6 +45,7 @@ if [[ $OS == "macos" ]]; then
 
   # custom LLVM
   export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+	alias claude="~/.claude/local/claude"
 fi
 
 if [[ $OS == "linux" ]]; then
@@ -60,6 +61,30 @@ if [[ $OS == "linux" ]]; then
 
   test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+load_local_aliases() {
+  local alias_files=()
+
+	if [[ -f "$HOME/.aliases.sh" ]]; then
+    alias_files+=("$HOME/.aliases.sh")
+  fi
+
+	local current_dir="$PWD"
+	while [[ "$current_dir" != "/" ]]; do
+		if [[ -f "$current_dir/.aliases.sh" ]]; then
+			alias_files=("$current_dir/.aliases.sh" "${alias_files[@]}")
+		fi
+		current_dir="$(dirname "$current_dir")"
+	done
+
+	for file in "${alias_files[@]}"; do
+    source "$file"
+  done
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load_local_aliases
+load_local_aliases
 
 alias os='echo $OS'
 alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
