@@ -156,15 +156,6 @@ alias dcur="docker compose up rails"
 # Global aliases
 alias -g G='| grep'
 
-# ClickFunnel's aliases
-alias t="bin/test --no-retry --no-precompile --fail-fast --skip-seeds"
-alias ts="bin/test --no-retry --no-precompile --fail-fast"
-alias tm="MAGIC_TEST=1 bin/test --no-retry --no-precompile --fail-fast --skip-seeds"
-alias mds="make dev-sync"
-alias msa="make start-all-overmind"
-alias msc="make web-start-custom"
-alias rdg="bin/rails api_docs:publish_openapi_schema"
-
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
