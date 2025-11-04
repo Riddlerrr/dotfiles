@@ -86,6 +86,30 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd load_local_aliases
 load_local_aliases
 
+dev() {
+  case "$1" in
+    start)
+		  if [[ -z "$DEV_START" ]]; then
+				echo "Error: ENV DEV_START is not defined"
+				return 1
+      fi
+      eval "$DEV_START"
+      ;;
+    stop)
+		  if [[ -z "$DEV_STOP" ]]; then
+				echo "Error: ENV DEV_STOP is not defined"
+				return 1
+      fi
+      eval "$DEV_STOP"
+      ;;
+    *)
+      echo "Usage: dev {start|stop}"
+      return 1
+      ;;
+  esac
+}
+
+
 alias os='echo $OS'
 alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
 
